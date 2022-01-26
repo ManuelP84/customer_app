@@ -4,6 +4,7 @@
 from django.contrib import admin
 from django.urls import path, include
 
+
 # Views
 from customer_app import views as customer_app_view
 

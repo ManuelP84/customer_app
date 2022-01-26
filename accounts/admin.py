@@ -1,3 +1,11 @@
+"""Accounts admin class"""
+
 from django.contrib import admin
 
-# Register your models here.
+# Models
+from accounts.models import Order
+
+
+admin.site.register(Order)
+
+

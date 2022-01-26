@@ -1,3 +1,9 @@
+"""Customer admin class"""
+
 from django.contrib import admin
 
-# Register your models here.
+# Models
+from customers.models import Customer
+
+
+admin.site.register(Customer)
