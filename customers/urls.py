@@ -4,11 +4,20 @@
 from django.urls import path
 
 # Views
-from customers import views as customers_views
+from . import views as customers_views
 
 
 urlpatterns = [
 
-    path('customers/', customers_views.customers, name='customers'),
+    path(
+        route='customer/<str:pk>/', 
+        view=customers_views.customer, 
+        name='customer'
+    ),
 
+    path(
+        route='customers/list',
+        view=customers_views.customersList,
+        name='list'
+    ),
 ]

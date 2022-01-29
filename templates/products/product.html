@@ -18,8 +18,21 @@
                     <tr>
                         <th>Products</th>
                         <th>Cathegory</th>
-                        <th>Size</th>
+                        <th>Price (USD)</th>
                     </tr>
+
+                    {% for product in products%}
+                        <tr>                           
+                            <td>{{ product.name }}</td>
+                            {% if product.category != Null %}
+                                <td>{{ product.category }}</td>
+                            {% else %}
+                                <td></td>
+                            {% endif %}                            
+                            <td>{{ product.price }}</td>
+                        </tr>
+                    {% endfor %}
+
                 </table>
             </div>
         </div>

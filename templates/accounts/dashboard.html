@@ -5,7 +5,6 @@
 {% endblock %}
 
 
-
 {% block content %}
 
 {% include "status.html" %}
@@ -20,8 +19,17 @@
                     <tr>
                         <th></th>
                         <th>Customer</th>
-                        <th>Orders</th>
+                        <th>Phone</th>
                     </tr>
+
+                    {% for customer in customers %}
+                        <tr>
+                            <td><a class="btn btn-sm btn-info" href="{% url 'customers:customer' customer.id %}">View</a></td>
+                            <td>{{ customer.name }}</td>
+                            <td>{{ customer.phone }}</td>
+                        </tr>
+                    {% endfor %}
+
                 </table>
             </div>
         </div>
@@ -30,7 +38,7 @@
             <h5>LAST 5 ORDERS</h5>
             <hr>
             <div class="card card-body">
-                <a class="btn btn-primary btn-sm btn-block">Create order</a>
+                <a class="btn btn-primary btn-sm btn-block" href="{% url 'accounts:create_order' %}">Create order</a>
                 <table class="table table-sm">
                     <tr>
                         <th>Product</th>
@@ -39,12 +47,22 @@
                         <th>Update</th>
                         <th>Remove</th>
                     </tr>
+
+                    {% for order in orders %}
+                        <tr>
+                            <td>{{ order.product }}</td>
+                            <td>{{ order.date_created }}</td>
+                            <td>{{ order.status }}</td>
+                            <td><a href="{% url 'accounts:update_order' order.id %}" class="btn btn-sm btn-info">Update</a></td>
+                            <td><a href="{% url 'accounts:delete_order' order.id %}" class="btn btn-sm btn-danger">Delete</a></td>
+                            
+                        </tr>
+                    {% endfor %}
+
                 </table>
             </div>
         </div>
     </div>
-
-
 
 {% endblock %}
 

@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+    <div class="row">
+        <div class="card card-body">
+            <form method="POST" action="">
+                {% csrf_token %}
+
+                {{ form }}
+            
+                <input class="btn btn-sm btn-info" type="submit" name="" id="submit" value="Update">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
