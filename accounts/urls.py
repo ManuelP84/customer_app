@@ -16,7 +16,7 @@ urlpatterns = [
     ),
 
     path(
-    route='create_order/', 
+    route='create_order/<str:pk>/', 
     view=accounts_views.createOrder, 
     name='create_order'
     ),

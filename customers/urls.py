@@ -20,4 +20,10 @@ urlpatterns = [
         view=customers_views.customersList,
         name='list'
     ),
+
+    path(
+        route='user/',
+        view=customers_views.userPage,
+        name='customer_page'
+    ),
 ]

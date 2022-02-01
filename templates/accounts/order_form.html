@@ -4,19 +4,21 @@
 {% block content %}
 
 <div class="row">
-    <div class="row">
+    <div class="col-md-6">
         <div class="card card-body">
             <form method="POST" action="">
                 {% csrf_token %}
 
-                {{ form }}
+                {{ formset.management_form }}
+                {% for form in formset %}
+                    {{ form }}
+                    <hr>
+                {% endfor %}
             
-                <input class="btn btn-sm btn-info" type="submit" name="" id="submit" value="Update">
+                <input class="btn btn-sm btn-info" type="submit" value="Update">
             </form>
         </div>
     </div>
 </div>
-
-
 
 {% endblock %}
