@@ -1,3 +1,4 @@
+"""Accounts forms"""
 
 # Django
 from django.forms import ModelForm

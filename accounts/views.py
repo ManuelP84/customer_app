@@ -20,7 +20,7 @@ from users.decorators import allowed_users, admin_only
 @admin_only
 def account(request):
     """Account view"""
-
+    
     orders = Order.objects.all()
     customers = Customer.objects.all()
 

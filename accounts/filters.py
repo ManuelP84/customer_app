@@ -1,9 +1,12 @@
+"""Accounts filters"""
+
 # Django 
 import django_filters
 from django.forms.widgets import TextInput
 
 # Models
-from . models import *
+from . models import Order
+
 
 class OrderFilter(django_filters.FilterSet):
 

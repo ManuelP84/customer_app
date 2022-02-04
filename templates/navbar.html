@@ -31,10 +31,10 @@
           <li>
             <a class="nav-link" href="{% url 'customers:list' %}">Customers</a>
           </li>
+        {% else %}
           <li>
-      {% else %}
-          <a class="nav-link" href="{% url 'users:profile_settings' %}">Settings</a>
-          </li>     
+            <a class="nav-link active" aria-current="page" href="{% url 'customers:customer_page' %}">Home</a>
+          </li>
         </ul>
       </div>
       {% endif %}
@@ -48,7 +48,7 @@
         <img src="{% static 'img/profile.png' %}" height="35" class="d-inline-block align-top rounded-circle"/>
     {% endif %}    
   </a>
-  <a class="nav-link" href="">{{request.user.username}}</a>
+  <a class="nav-link" href="{% url 'users:profile_settings' %}">{{request.user.username}}</a>
   
   <a class="nav-link" href="{% url 'users:logout' %}">Logout</a>
     

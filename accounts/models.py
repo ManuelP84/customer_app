@@ -27,5 +27,5 @@ class Order(models.Model):
 
 
     def __str__(self):
-        return self.product.name + " by@ " + self.customer.name # Can also include the date_created self.date_created.strftime("%m/%d/%Y, %H:%M:%S"
+        return self.product.name + " by@ " + self.customer.first_name # Can also include the date_created self.date_created.strftime("%m/%d/%Y, %H:%M:%S"
 

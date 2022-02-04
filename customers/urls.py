@@ -11,7 +11,7 @@ urlpatterns = [
 
     path(
         route='customer/<str:pk>/', 
-        view=customers_views.customer, 
+        view=customers_views.customerDetail, 
         name='customer'
     ),
 
@@ -23,7 +23,7 @@ urlpatterns = [
 
     path(
         route='user/',
-        view=customers_views.userPage,
+        view=customers_views.customerDashboard,
         name='customer_page'
     ),
 ]

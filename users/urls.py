@@ -31,5 +31,5 @@ urlpatterns = [
         route='profile_settings/',
         view=users_views.profileSettingsView,
         name='profile_settings'
-    ),
+    ),    
 ]

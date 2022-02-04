@@ -15,7 +15,8 @@ from users.decorators import allowed_users
 
 
 @login_required
-def customer(request, pk):
+@allowed_users(allowed_roles=['admin'])
+def customerDetail(request, pk):
     """Customer detail view"""
 
     customer = Customer.objects.get(id=pk)
@@ -39,6 +40,7 @@ def customer(request, pk):
 
 
 @login_required
+@allowed_users(allowed_roles=['admin'])
 def customersList(request):
     """List all the customers"""
 
@@ -54,8 +56,8 @@ def customersList(request):
 
 
 @login_required
-@allowed_users(allowed_roles=['customers'])
-def userPage(request):
+@allowed_users(allowed_roles=['customer'])
+def customerDashboard(request):
     """User view"""
 
     orders = request.user.customer.order_set.all()

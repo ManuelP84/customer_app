@@ -50,10 +50,10 @@
 # allOrders = {}
 
 # for order in firstCustomer.order_set.all():
-# 	if order.product.name in allOrders:
-# 		allOrders[order.product.name] += 1
+# 	if order.product in allOrders:
+# 		allOrders[order.product] += 1
 # 	else:
-# 		allOrders[order.product.name] = 1
+# 		allOrders[order.product] = 1
 
 # #Returns: allOrders: {'Ball': 2, 'BBQ Grill': 1}
 

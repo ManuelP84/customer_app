@@ -4,7 +4,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import Group
+#from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
 
 from customers.models import Customer
@@ -16,23 +16,25 @@ from . forms import CreateUserForm, CustomerForm
 # Decorators
 from . decorators import authenticated_user, allowed_users
 
+
 @authenticated_user
 def registerPage(request):
     """Register a new user"""
     
     if request.method == 'POST':
-        form = CreateUserForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            username = form.cleaned_data.get('username')
-            messages.success(request, 'Account created for: ' + username)
+        form = CreateUserForm(request.POST)     
+        if request.POST['privacy_policy'] == 'on':
+            if form.is_valid():
+                user = form.save()            
+                username = form.cleaned_data.get('username')
+                messages.success(request, 'Account created for: ' + username)
 
-            group = Group.objects.get(name='customers')
-            user.groups.add(group)
+                # group = Group.objects.get(name='customers')
+                # user.groups.add(group)
 
-            Customer.objects.create(user=user)
-            
-            return redirect('users:login')
+                # Customer.objects.create(user=user)
+                
+                return redirect('users:login')
 
     else:
         form = CreateUserForm()
@@ -64,7 +66,7 @@ def loginUser(request):
             login(request, user)
             return redirect('accounts:accounts')
         else:
-            messages.info(request, 'Password or Username invalid!')
+            messages.info(request, 'Password or User invalid!')
 
 
     context = {}
@@ -85,7 +87,7 @@ def logoutUser(request):
 
 
 @login_required
-@allowed_users(allowed_roles=['customers'])
+@allowed_users(allowed_roles=['customer'])
 def profileSettingsView(request):
     """Profile settings view"""
 

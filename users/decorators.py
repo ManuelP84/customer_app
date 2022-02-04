@@ -1,3 +1,4 @@
+"""Users decorators"""
 
 # Django
 from django.shortcuts import redirect
@@ -39,7 +40,7 @@ def admin_only(view_func):
             for group in groups:
                     if group.name == 'admin':
                         return view_func(request)
-                    if group.name == 'customers':
+                    if group.name == 'customer':
                         return redirect('customers:customer_page')     
             
     return wrapper
